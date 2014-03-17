@@ -9,6 +9,9 @@ class TasksController < ApplicationController
       redirect_to root_path
     end
   end
+  def update
+    self.mark_complete
+  end
   def delete
   end
   private

@@ -3,7 +3,11 @@
   <p>There are no tasks to show. Why don't you make some?</p>
 <% else %>
   <% @tasks.each do |task| %>
-<%= link_to "&#10003;".html_safe, task_path(task:{completed: true}) %> <%= task.title %>
+    <%= form_for task, url: {action: "update"} do |f| %>
+       <%= f.submit "Done." %>
+    <% end %> 
+    <%= task.title %>
+    <br>
   <% end %>
 <% end %>
 <p>Add Task:</p>
