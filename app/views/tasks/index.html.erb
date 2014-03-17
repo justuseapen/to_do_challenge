@@ -3,7 +3,7 @@
   <p>There are no tasks to show. Why don't you make some?</p>
 <% else %>
   <% @tasks.each do |task| %>
-    <%= form_for task, url: {action: "update"} do |f| %>
+    <%= form_for task do |f| %>
        <%= f.submit "Done." %>
     <% end %> 
     <%= task.title %>

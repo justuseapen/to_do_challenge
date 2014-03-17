@@ -10,7 +10,13 @@ class TasksController < ApplicationController
     end
   end
   def update
-    self.mark_complete
+    @task = Task.find(params[:id])
+    @task.mark_complete
+    if @task.save
+      redirect_to index, notice:"Task marked complete!"
+    else
+      redirect_to index, notice:"Something went wrong"
+    end
   end
   def delete
   end
